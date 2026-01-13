@@ -1,16 +1,87 @@
-# React + Vite
+# gabrielslsz.me
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website built with React and Bootstrap.
 
-Currently, two official plugins are available:
+Live: https://gabrielslsz.me/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This repository contains the source code of my personal portfolio.
+The goal is to keep the project simple, readable and easy to maintain.
 
-## Expanding the ESLint configuration
+The website presents:
+- Who I am
+- What I build
+- How to contact me
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+No unnecessary abstractions. No overengineering.
+
+---
+
+## Stack
+
+- React
+- Vite
+- Bootstrap 5
+- JavaScript
+- HTML / CSS
+
+---
+
+## Project Structure
+
+src/<br>
+├── components/ <br>
+│ └── Navbar.jsx<br>
+├── Pages/<br>
+│ └── Home.jsx<br>
+│ └── Home.css<br>
+├── App.jsx<br>
+├── main.jsx<br>
+└── index.css<br>
+
+yaml
+Copy code
+
+---
+
+## Running locally
+
+Requirements:
+- Node.js (>= 18)
+
+Install dependencies:
+
+```bash
+npm install
+Run development server:
+
+bash
+Copy code
+npm run dev
+Build for production:
+
+bash
+Copy code
+npm run build
+Deployment
+The project is deployed as a static site.
+
+Build output: dist/
+
+Hosting: GitHub Pages
+
+Domain: https://gabrielslsz.me/
+
+Philosophy
+Simple is better than complex
+
+Code should be readable
+
+Tools should serve the project, not the opposite
+
+Author
+Gabriel Sousa
+Software Developer
