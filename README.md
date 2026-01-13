@@ -1,53 +1,16 @@
-# Portfólio Profissional – Desenvolvedor Backend
+# React + Vite
 
-Este projeto consiste no desenvolvimento de um **portfólio profissional para prestação de serviços em desenvolvimento de software**, com foco em **Back-end**, **APIs RESTful** e **soluções web sob medida**.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-O portfólio foi planejado com base em um levantamento de requisitos, visando clareza, organização e fácil entendimento para clientes e recrutadores.
+Currently, two official plugins are available:
 
----
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 🎯 Objetivo
+## React Compiler
 
-Apresentar de forma clara:
-- Perfil profissional
-- Serviços oferecidos
-- Tecnologias dominadas
-- Projetos desenvolvidos
-- Canais de contato
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-Facilitando a captação de clientes e oportunidades profissionais.
+## Expanding the ESLint configuration
 
----
-
-## 📋 Levantamento de Requisitos
-
-O projeto foi estruturado considerando:
-
-### Requisitos Funcionais
-- Apresentação profissional do desenvolvedor
-- Listagem de serviços
-- Exibição de projetos
-- Divulgação das tecnologias utilizadas
-- Disponibilização de meios de contato
-
-### Requisitos Não Funcionais
-- Interface responsiva
-- Código organizado e legível
-- Carregamento rápido
-- Versionamento com Git
-- Hospedagem pública
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
-- HTML5
-- CSS3
-- JavaScript
-- Git / GitHub
-- GitHub Pages
-
----
-
-## 📂 Estrutura do Projeto
-
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
