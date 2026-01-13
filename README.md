@@ -47,14 +47,14 @@ Copy code
 
 ---
 
-## Running locally
+### Running locally
 
 Requirements:
 - Node.js (>= 18)
 
-Install dependencies:
+### Install dependencies:
 
-```bash
+bash
 npm install
 Run development server:
 
@@ -71,17 +71,17 @@ The project is deployed as a static site.
 
 Build output: dist/
 
-Hosting: GitHub Pages
+### Hosting: GitHub Pages
 
 Domain: https://gabrielslsz.me/
 
-Philosophy
+### Philosophy
 Simple is better than complex
 
 Code should be readable
 
 Tools should serve the project, not the opposite
 
-Author
-Gabriel Sousa
+#### Author
+Gabriel Sousa<br>
 Software Developer
