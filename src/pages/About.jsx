@@ -1,5 +1,3 @@
-function About() {
-    return <h2>Sobre mim</h2>;
+export default function About() {
+  return <h1>Sobre mim</h1>
 }
-
-export default About;
