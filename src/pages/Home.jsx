@@ -21,7 +21,7 @@ export default function Home() {
                 Preciso de um projeto
               </a>
 
-              <a href="#projetos" className="btn btn-outline-light btn-lg px-4">
+              <a href="src/pages/About.jsx" className="btn btn-outline-light btn-lg px-4">
                 Ver portfólio
               </a>
             </div>
