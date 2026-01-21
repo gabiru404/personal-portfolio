@@ -30,23 +30,6 @@ No unnecessary abstractions. No overengineering.
 
 ---
 
-## Project Structure
-
-src/<br>
-├── components/ <br>
-│ └── Navbar.jsx<br>
-├── Pages/<br>
-│ └── Home.jsx<br>
-│ └── Home.css<br>
-├── App.jsx<br>
-├── main.jsx<br>
-└── index.css<br>
-
-yaml
-Copy code
-
----
-
 ### Running locally
 
 Requirements:
