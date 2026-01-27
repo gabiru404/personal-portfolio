@@ -17,7 +17,7 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden; /* trava qualquer scroll */
+            
         }
 
         body {
@@ -25,7 +25,7 @@
         }
 
         .brand-highlight {
-            color: #ff2d55; /* vermelho moderno */
+            color: #ff2d55;
         }
 
     /* Navbar */
@@ -35,20 +35,45 @@
         }
 
                 /* Hero FULLSCREEN REAL */
-        .hero {
-            height: 100vh;
-            background:
-                linear-gradient(
-                    rgba(0,0,0,0.85),
-                    rgba(0,0,0,0.85)
-                ),
-                url('https://images.unsplash.com/photo-1517180102446-f3ece451e9d8')
-                center / cover no-repeat;
+.hero {
+    min-height: 100vh;
+    background-attachment: scroll;
+    padding-top: 72px;
+    align-items: center; /* Center vertically */
+    padding: 80px 0;  
+    color: #fff;
+    position: relative;
+    background: 
+        linear-gradient(
+            rgba(0, 0, 0, 0.85), 
+            rgba(0, 0, 0, 0.85)
+        ), 
+        url('https://images.unsplash.com/photo-1517180102446-f3ece451e9d8') 
+        center / cover no-repeat fixed; 
+}
 
-            display: flex;
-            align-items: center;
-            color: #fff;
+    @media (min-width: 992px) {
+        .hero {
+            background-attachment: fixed;
         }
+    }
+
+/* emphasis */
+.hero .card {
+    background-color: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px);               
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.hero .card:hover {
+    transform: translateY(-10px); /*float */
+}
+
+.hero .card-text {
+    color: #ddd;
+}
 
         /* Footer */
         footer {
@@ -61,7 +86,7 @@
 </style>
 <body>
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark position-absolute top-0 w-100">
+<nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand fw-bold" href="/index.html">
     Gabriel <span class="brand-highlight">Sousa</span>
@@ -79,17 +104,55 @@
     </div>
 </nav>
 
-<section class="hero">
+
+<section class="hero py-5">
     <div class="container">
-        <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGO0QYe6lmqL3IF-8oRssPf1scvwenpqcWwUWnnYm7kswsT4TuAe1CvpmzejZYWui153TeQa7YxSZXK01Dv0ISLqgB636jT6x4jQr_EG4&s=10" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-    </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGO0QYe6lmqL3IF-8oRssPf1scvwenpqcWwUWnnYm7kswsT4TuAe1CvpmzejZYWui153TeQa7YxSZXK01Dv0ISLqgB636jT6x4jQr_EG4&s=10" alt="Descrição da imagem">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Título do Card 1</h5>
+                        <p class="card-text">Texto de exemplo para preencher o conteúdo do card e testar o layout.</p>
+                        <a href="#" class="btn btn-primary mt-auto">Ir para algum lugar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGO0QYe6lmqL3IF-8oRssPf1scvwenpqcWwUWnnYm7kswsT4TuAe1CvpmzejZYWui153TeQa7YxSZXK01Dv0ISLqgB636jT6x4jQr_EG4&s=10" alt="Descrição da imagem">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Título do Card 2</h5>
+                        <p class="card-text">Texto de exemplo para preencher o conteúdo do card.</p>
+                        <a href="#" class="btn btn-primary mt-auto">Ir para algum lugar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGO0QYe6lmqL3IF-8oRssPf1scvwenpqcWwUWnnYm7kswsT4TuAe1CvpmzejZYWui153TeQa7YxSZXK01Dv0ISLqgB636jT6x4jQr_EG4&s=10" alt="Descrição da imagem">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Título do Card 3</h5>
+                        <p class="card-text">Texto de exemplo para preencher o conteúdo do card.</p>
+                        <a href="#" class="btn btn-primary mt-auto">Ir para algum lugar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGO0QYe6lmqL3IF-8oRssPf1scvwenpqcWwUWnnYm7kswsT4TuAe1CvpmzejZYWui153TeQa7YxSZXK01Dv0ISLqgB636jT6x4jQr_EG4&s=10" alt="Descrição da imagem">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Título do Card 4</h5>
+                        <p class="card-text">Texto de exemplo para preencher o conteúdo do card.</p>
+                        <a href="#" class="btn btn-primary mt-auto">Ir para algum lugar</a>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div> 
 </section>
 <!-- Footer -->
 <footer>
