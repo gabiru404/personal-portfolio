@@ -2,136 +2,569 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Gabriel Sousa | Desenvolvedor de Software</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel Sousa | Portfólio</title>
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Devicon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
-                html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden; /* trava qualquer scroll */
+        :root {
+            --accent-color: #010101; /* Azul claro do modelo */
+            --bg-gray: #F4F4F4;
+            --dark-text: #333333;
+            --white: #FFFFFF;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark-text);
+            background-color: var(--white);
+            margin: 0;
+            padding: 0;
+            padding-top: 80px; /* Espaço para o header fixo */
         }
 
-        /* Navbar */
+        h1, h2, h3, .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Navbar Topo Fixo */
         .navbar {
-            background: rgba(0,0,0,0.85);
-            height: 72px;
+            background-color: var(--white);
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+            transition: all 0.3s ease;
         }
 
-        /* Hero FULLSCREEN REAL */
-        .hero {
-            height: 100vh;
-            background:
-                linear-gradient(
-                    rgba(0,0,0,0.85),
-                    rgba(0,0,0,0.85)
-                ),
-                url('https://images.unsplash.com/photo-1517180102446-f3ece451e9d8')
-                center / cover no-repeat;
-
+        .navbar-brand {
+            font-size: 1.5rem;
+            color: var(--dark-text) !important;
             display: flex;
             align-items: center;
-            color: #fff;
         }
-        
-        .brand-highlight {
-    color: #ff2d55; /* vermelho moderno */
-}
 
-        .btn-primary {
-            background-color: #ff2d55;
+        .brand-dot {
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            margin-left: 8px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--dark-text) !important;
+            margin-left: 30px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-color) !important;
+        }
+
+        /* Seções */
+        section {
+            padding: 120px 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 60px;
+            text-align: left;
+        }
+
+        /* Hero */
+        #inicio {
+            background-color: var(--bg-gray);
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero-card {
+            background: var(--white);
+            display: flex;
+            box-shadow: 25px 25px 0px var(--accent-color); /* Efeito gráfico do Wix */
+            overflow: visible;
+        }
+
+        .hero-img-box {
+            width: 45%;
+            position: relative;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-content {
+            width: 55%;
+            padding: 80px 60px;
+        }
+
+        .hero-name {
+            font-size: 3.8rem;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .hero-role {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        /* Sobre / Resumo */
+        .resume-item {
+            margin-bottom: 50px;
+            border-left: 2px solid #eee;
+            padding-left: 25px;
+        }
+
+        .resume-date {
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        /* Projetos - Swiper Override */
+        .swiper {
+            width: 100%;
+            padding-bottom: 50px !important;
+        }
+
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-gray);
+            aspect-ratio: 1 / 1;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            width: 100%;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--accent-color) !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--accent-color) !important;
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 174, 239, 0.95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .project-item:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Contato */
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 18px;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            background: #fff;
+            font-size: 0.9rem;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .btn-submit {
+            background: var(--accent-color);
+            color: white;
             border: none;
+            padding: 18px 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 0.9rem;
         }
 
-        .btn-primary:hover {
-            background-color: #e0244a;
-        }
-
-        .btn-primary {
-            background-color: #ff2d55;
-            border: none;
-            padding: 12px 28px;
-        }
-
-        .btn-primary:hover {
-            background-color: #e0244a;
-        }
-
-        .btn-outline-light {
-            padding: 12px 28px;
+        .btn-submit:hover {
+            background: #008cc0;
         }
 
         /* Footer */
         footer {
-            background: #111;
-            color: #777;
-            padding: 20px 0;
+            padding: 60px 0;
+            background: var(--white);
+            border-top: 1px solid #eee;
             text-align: center;
-            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsividade */
+        @media (max-width: 991px) {
+            .hero-card {
+                flex-direction: column;
+                box-shadow: 15px 15px 0px var(--accent-color);
+            }
+
+            .hero-img-box, .hero-content {
+                width: 100%;
+            }
+
+            .hero-content {
+                padding: 40px 30px;
+            }
+
+            .hero-name {
+                font-size: 2.8rem;
+            }
+
+            section {
+                padding: 80px 0;
+            }
         }
     </style>
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbar-main" data-bs-offset="100">
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark position-absolute top-0 w-100">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="/index.html">
-    Gabriel <span class="brand-highlight">Sousa</span>
-</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="menu">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="pages/projects.html">Projetos</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/contact.html">Contato</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- Hero Section -->
-<section class="hero">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <h1>Software feito do jeito certo.</h1>
-                <p>
-                    Sou Gabriel Sousa, desenvolvedor de software especializado em criar
-                    aplicações modernas, escaláveis e eficientes. Trabalho com soluções
-                    web completas, desde a ideia até a entrega final.
-                    Se você precisa de um sistema, site ou aplicação profissional,
-                    vamos conversar.
-                </p>
-                <div class="d-flex gap-3 flex-wrap">
-                    <a href="pages/contact.html" class="btn btn-primary">Preciso de um projeto</a>
-                    <a href="pages/projects.html" class="btn btn-outline-light">Ver portfólio</a>
-                </div>
+    <!-- Header / Nav -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar-main">
+        <div class="container">
+            <a class="navbar-brand" href="#inicio">
+                GABRIEL SOUSA <span class="brand-dot"></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">INÍCIO</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sobre">RESUMO</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projetos">PROJETOS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">CONTATO</a></li>
+                </ul>
             </div>
         </div>
-    </div>
-</section>
+    </nav>
 
-<!-- Footer -->
-<footer>
-    <div class="container">
-        © 2026 • Gabriel Sousa — Desenvolvedor de Software
-    </div>
-</footer>
+    <main>
+        <!-- Inicio -->
+        <section id="inicio">
+            <div class="container hero-container">
+                <div class="hero-card">
+                    <div class="hero-img-box">
+                        <img src="imgs/eu.jpeg" alt="Gabriel Sousa" class="hero-img">
+                    </div>
+                    <div class="hero-content">
+                        <h1 class="hero-name">GABRIEL<br>SOUSA</h1>
+                        <div class="hero-role">Desenvolvedor de Software</div>
+                        <p class="hero-desc">Especialista em criar aplicações modernas, escaláveis e eficientes, transformando ideias em realidade digital.</p>
+                        <div class="d-flex gap-3">
+                            <a href="#projetos" class="btn-submit text-decoration-none">Ver Projetos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Sobre / Resume -->
+        <section id="sobre">
+            <div class="container">
+                <h2 class="section-title">Resumo</h2>
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <h3 class="mb-5 h4 fw-bold">Experiência Profissional</h3>
+                        <div class="resume-item">
+                            <span class="resume-date">Agenda Assessoria</span>
+                            <h4 class="h5 fw-bold">Desenvolvedor Full Stack</h4>
+                            <p class="small text-muted">Sustentação, análise e resolução de chamados da plataforma de Gestão Previdenciária.</p>
+                        </div>
+                        <div class="resume-item">
+                            <span class="resume-date">Travessia</span>
+                            <h4 class="h5 fw-bold">Desenvolvedor Backend</h4>
+                            <p class="small text-muted">Integração com o back-end, revisão de código e acompanhamento das entregas</p>
+                        </div>
+                        <div class="resume-item">
+                            <span class="resume-date">Instituto VLW Cursos</span>
+                            <h4 class="h5 fw-bold">Desenvolvedor Web</h4>
+                            <p class="small text-muted">Desenvolvimento e da evolução do site de cursos da instituição, atuando tanto na parte estrutural quanto na interface da aplicação</p>
+                        </div>
+                        <div class="resume-item">
+                            <span class="resume-date">Instituto VLW Cursos</span>
+                            <h4 class="h5 fw-bold">Coordenador de mídias sociais</h4>
+                            <p class="small text-muted">Manutenção de Sistemas: Atualização técnica de componentes frontend e integração com ferramentas de terceiros</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 class="mb-5 h4 fw-bold">Educação</h3>
+                        <div class="resume-item">
+                            <span class="resume-date">Instituto Federal de Tocantins</span>
+                            <h4 class="h5 fw-bold">Pós-Graduação em Desenvolvimentos de Sistemas</h4>
+                            <p class="small text-muted">focada em arquitetura de sistemas, desenvolvimento de software, infraestrutura, redes e segurança. A formação aprofunda conceitos de computação distribuída, modelagem, integração de sistemas, automação e tecnologias aplicadas a ambientes corporativos</p>
+                        </div>
+                        <div class="resume-item">
+                            <span class="resume-date">Centro Universitário Unidombosco</span>
+                            <h4 class="h5 fw-bold">Superior em Análise e Desenvolvimento de Sistemas</h4>
+                            <p class="small text-muted">focada no ciclo de vida de desenvolvimento de software. Aprofundamento em Programação Orientada a Objetos, Estruturas de Dados, Banco de Dados Relacionais e Engenharia de Requisitos. Desenvolvimento de projetos práticos utilizando Python (Django) e JavaScript (Node.js), priorizando a escalabilidade e a performance de aplicações web</p>
+                        </div>
+                        <div class="resume-item">
+                            <span class="resume-date">Instituto Federal do Maranhão</span>
+                            <h4 class="h5 fw-bold">Técnico em Informática</h4>
+                            <p class="small text-muted">focada no Lógica de Programação: Domínio de algoritmos e estruturas de dados fundamentais.
+                                Desenvolvimento Web: Criação de sites utilizando HTML5, CSS3 e JavaScript.
+                                Sistemas Embarcados: Programação em C/C++ utilizando a plataforma Arduino para projetos de hardware.
+                                Bancos de Dados: Fundamentos de modelagem e manipulação de dados com SQL.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-5 pt-4">
+                    <h3 class="h4 fw-bold mb-5">Habilidades Técnicas</h3>
+                    <div class="d-flex flex-wrap gap-5 justify-content-start">
+                        <div class="text-center">
+                            <i class="devicon-python-plain colored display-5"></i>
+                            <p class="small mt-2 fw-bold">PYTHON</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="devicon-django-plain colored display-5"></i>
+                            <p class="small mt-2 fw-bold">DJANGO</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="devicon-flask-original colored display-5"></i>
+                            <p class="small mt-2 fw-bold">FLASK</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="devicon-csharp-plain colored display-5"></i>
+                            <p class="small mt-2 fw-bold">C#</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="devicon-angularjs-plain colored display-5"></i>
+                            <p class="small mt-2 fw-bold">ANGULAR</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="devicon-react-original colored display-5"></i>
+                            <p class="small mt-2 fw-bold">REACT</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="devicon-dart-plain colored display-5"></i>
+                            <p class="small mt-2 fw-bold">DART</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="devicon-flutter-plain colored display-5"></i>
+                            <p class="small mt-2 fw-bold">FLUTTER</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="devicon-javascript-plain colored display-5"></i>
+                            <p class="small mt-2 fw-bold">JS</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="devicon-docker-plain colored display-5"></i>
+                            <p class="small mt-2 fw-bold">DOCKER</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="devicon-azure-plain colored display-5"></i>
+                            <p class="small mt-2 fw-bold">AZURE</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="devicon-amazonwebservices-original colored display-5"></i>
+                            <p class="small mt-2 fw-bold">AWS</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="devicon-git-plain colored display-5"></i>
+                            <p class="small mt-2 fw-bold">GIT</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="devicon-github-original display-5"></i>
+                            <p class="small mt-2 fw-bold">GITHUB</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="devicon-bootstrap-plain colored display-5"></i>
+                            <p class="small mt-2 fw-bold">CSS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos -->
+        <section id="projetos" class="bg-light">
+            <div class="container">
+                <h2 class="section-title">Projetos</h2>
+                <!-- Swiper -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="project-item">
+                                <img src="/imgs/servimo.png" alt="Plataforma Servimo">
+                                <div class="project-overlay">
+                                    <h4 class="fw-bold">Plataforma Servimo</h4>
+                                    <p class="small">SISTEMA DE GESTÃO COMPLETO</p>
+                                    <a href="https://servimo.app/" target="_blank" class="text-white fw-bold mt-3 text-decoration-none border-bottom">VER SITE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-item">
+                                <img src="/imgs/delete.png" alt="Delete me">
+                                <div class="project-overlay">
+                                    <h4 class="fw-bold">Delete Perfil</h4>
+                                    <p class="small">DESIGN RESPONSIVO & UX</p>
+                                    <a href="https://gabrielslsz.github.io/deleteperfil.me/" target="_blank" class="text-white fw-bold mt-3 text-decoration-none border-bottom">VER SITE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-item">
+                                <img src="/imgs/gratia.png" alt="Gratia">
+                                <div class="project-overlay">
+                                    <h4 class="fw-bold">Gratia</h4>
+                                    <p class="small">INTEGRAÇÃO DE DADOS EXTERNOS</p>
+                                    <a href="https://gratia-b1hp.onrender.com/" target="_blank" class="text-white fw-bold mt-3 text-decoration-none border-bottom">VER SITE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-item">
+                                <img src="/imgs/sitecairbar.png" alt="Site Cairbar">
+                                <div class="project-overlay">
+                                    <h4 class="fw-bold">Site Cairbar</h4>
+                                    <p class="small">DESENVOLVIMENTO WEB FULL STACK</p>
+                                    <a href="https://cacs-cairbarschutel.org.br/index.html" target="_blank" class="text-white fw-bold mt-3 text-decoration-none border-bottom">VER SITE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Navigation -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato -->
+        <section id="contato">
+            <div class="container">
+                <h2 class="section-title">Contato</h2>
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <form class="contact-form" action="https://formspree.io/f/gaabdev42@gmail.com" method="POST">
+                            <input type="text" name="nome" placeholder="Nome" required>
+                            <input type="email" name="email" placeholder="Email" required>
+                            <textarea rows="4" name="mensagem" placeholder="Mensagem" required></textarea>
+                            <button type="submit" class="btn-submit">Enviar</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-5 offset-lg-1">
+                        <div class="mb-5">
+                            <h3 class="h5 fw-bold mb-3">DICAS PARA O CONTATO</h3>
+                            <p class="text-muted"><strong>Nome:</strong> Informe seu nome completo ou da sua empresa para uma identificação precisa.</p>
+                        </div>
+                        <div class="mb-5">
+                            <h3 class="h5 fw-bold mb-3">RECOMENDAÇÕES</h3>
+                            <p class="text-muted"><strong>Mensagem:</strong> Descreva detalhadamente seu projeto, prazos ou o motivo do contato. Isso ajuda a preparar uma resposta mais assertiva.</p>
+                        </div>
+                        <div>
+                            <h3 class="h5 fw-bold mb-3">REDES SOCIAIS</h3>
+                            <div class="d-flex gap-4">
+                                <a href="https://github.com/gabrielslsz" class="text-dark"><i class="devicon-github-original display-6"></i></a>
+                                <a href="https://www.linkedin.com/in/gabrielslsz/" class="text-dark"><i class="devicon-linkedin-plain display-6"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <p class="mb-0 text-muted small fw-bold">© 2026 GABRIEL SOUSA | DESENVOLVEDOR DE SOFTWARE</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        },
+      });
+    </script>
 </body>
 </html>
